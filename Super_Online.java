@@ -1,158 +1,120 @@
-import java.net.StandardSocketOptions;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.Scanner;
-
-
 
 public class Super_Online {
 
-   static Scanner sc = new Scanner(System.in);
-   static List<String> opcionesPrincipales = Arrays.asList("tecla:1  -Cargar productos","tecla:2  -Mostrar inventario","tecla:3  -Actualizar existencias","tecla:4  -Nuevo producto","tecla:5  -Mostrar productos enviables","tecla:6  -Guardar inventario","tecla:0  -Terminar");
-   static List<String> tiposDeProductos = Arrays.asList("tecla:1  -Lacteos","tecla:2  -Frutas u hortalizas","tecla:3  -Bebidas","tecla:4  -Herramientas","tecla:5  -Otros","tecla:0  -Cancelar");
+   static Scanner in = new Scanner(System.in);
    static Inventario inventario = Inventario.getInstance();
 
-
     public static void main(String[] args) {
-        imprimirMenuPrincipal();
-    }
+
+        int opcion = 1;
 
 
-    public static void imprimirMenuPrincipal(){
+        while (opcion != 0) {
+            mostrarMenuInventario();
+            System.out.println(Constantes.ANSI_PURPLE+"Opcion? ");
+            opcion = leerOpcion(7); // hay 6 acciones principales sobre el inventario + terminar la aplicaciÃ³n
+            switch(opcion) {
+                case 0:	System.out.println("Termina la aplicacion");
+                    System.exit(0);
+                case 1: inventario.cargarProductos();
+                    pause();
+                    break; // cargar productos
+                case 2: inventario.mostrarProductos();
+                    pause();
+                    break;
+                case 3:     //actualizar la cantidad de un producto en almancÃ©n
+                    Producto p;
+                    while (opcion!=0) {
+                        inventario.mostrarProductos();
+                        System.out.println("0 - Finalizar actualizacion del inventario");
+                        System.out.println("Elige el numero del producto a actualizar, tecla:x (/= 0):");
+                        System.out.println("Opcion? ");
+                        opcion = leerOpcion(inventario.size()+1); //se han mostrado todos los articulos (talla) + opcion de salida
+                        if (opcion!=0) {
+                            p = inventario.getProducto(opcion);  //el mismo producto
+                            System.out.println("Producto elegido: "+p.getNombre()+", existencias: "+p.getCantidad());
+                            System.out.println("Elige la nueva cantidad:");
+                            int cant = in.nextInt();
+                            in.nextLine();
+                            p.setCantidad(cant);   //actualiza el mismo producto del inventario
+                            //NO ES NECESARIA LA ACTUALIZACIÃ“N DESDE INVENTARIO!!
+                            System.out.println("Producto actualizado: "+p.getNombre()+", Nueva cantidad en almacen: "+p.getCantidad());
+                            System.out.println();
+                            pause();
+                        }
+                    } opcion=1; break;
+                case 4: 	//aÃ±adir un nuevo producto al almancÃ©n
+                    while (opcion!=0) {
+                        mostrarMenuAddNuevoProducto();
+                        System.out.println(Constantes.ANSI_PURPLE+"Opcion? " +Constantes.ANSI_RESET);
+                        opcion = leerOpcion(6); // 5 clases de productos y salida del menÃº
+                        if (opcion!=0) {
 
-        String opcion;
-        do {
-            System.out.println(Constantes.TITULO_MENU_PRINCIPAL);
-            mostrarOpcionesPrincipales();
-
-            System.out.println("Escoja una opcion...");
-            opcion = sc.nextLine();
-            gestionarMenuPrincipal(opcion);
-        }while (!opcion.equals("0"));
-            System.out.println("Cerrando el programa....");
-    }
-
-    public static void imprimirMenuEleccionProducto(){
-            System.out.println(Constantes.TITULO_TIPO_PRODUCTO);
-            mostrarTiposDeProducto();
-    }
-
-    public static void mostrarOpcionesPrincipales(){
-
-        for (String opcion : opcionesPrincipales){
-                System.out.println(opcion);
-           }
-    }
-    public static void mostrarTiposDeProducto(){
-
-        for (String tipo : tiposDeProductos){
-            System.out.println(tipo);
-        }
-    }
-
-    public static void cargarProductos(){
-
-     inventario.cargarProductos();
-    }
-
-    public static void mostrarInventario(){
-
-        System.out.println("***Lista completa de productos catalogados-------------------------------------");
-        imprimirInventarioCompleto();
-        System.out.println("Pulse cualquier tecla para volver al menu principal");
-        sc.nextLine();
-    }
-    public static void actualizarExistencias(){
-
-        System.out.println("***Lista completa de productos catalogados-------------------------------------");
-        imprimirInventarioCompleto();
-        int opcion=0;
-        System.out.println("Introduzca el Id del producto a actualizar,");
-        opcion = Integer.parseInt(sc.nextLine());
-        do {
-          try{
-              Producto p= inventario.getProducto(opcion);
-
-              if(p.getCodigo()==999999){
-                System.out.println(Constantes.ANSI_RED+" No existe producto con ese id" +Constantes.ANSI_RESET);
-                return;
-               }
-
-              System.out.println(Constantes.ANSI_PURPLE +"Producto elegido "+Constantes.ANSI_RESET +p.getNombre() + Constantes.ANSI_CYAN+" Existencias= "+Constantes.ANSI_RESET +p.getCantidad());
-              System.out.println(Constantes.ANSI_YELLOW+"Introduce la nueva cantidad"+ Constantes.ANSI_RESET);
-              int nuevaCantidad= Integer.parseInt(sc.nextLine());
-              p.setCantidad(nuevaCantidad);
-              System.out.println(Constantes.ANSI_PURPLE +"Producto actualizado: " +Constantes.ANSI_RESET +p.getNombre() + Constantes.ANSI_CYAN+ " Nueva cantidad: "+ Constantes.ANSI_RESET+ p.getCantidad());
-              System.out.println("Introduzca el Id del producto a actualizar, pulse 0 para salir");
-              opcion = Integer.parseInt(sc.nextLine());
-            }catch (Exception e){
-                System.out.println(Constantes.ANSI_RED+" Error al introducir el dato pedido" +Constantes.ANSI_RESET);
+                            Producto P = nuevoProducto(opcion);
+                            inventario.addNuevoProducto(P);
+                            System.out.println("Producto aniadido , numero "+(inventario.size()-1));
+                            inventario.getProducto(inventario.size()).imprimir(); //imprime el Ãºltimo producto incluido
+                            System.out.println();
+                            System.out.println();
+                            pause();
+                        }
+                    } opcion=1; break;
+                case 5: inventario.mostrarProductosEnviables();
+                    pause();
+                    break;
+                case 6: inventario.volcarProductos();
+                    pause();
+                    break;
             }
-        }while (opcion!=0);
-    }
-
-    public static void nuevoProducto(){
-        System.out.println("Elige el tipo de producto que quieres anadir....");
-        imprimirMenuEleccionProducto();
-
-        String eleccion = sc.nextLine();
-
-        switch (eleccion){
-            case "1":{
-                Producto producto=new Lacteo(sc);
-                inventario.addNuevoProducto(producto);
-            } break;
-            case "2":{
-                Producto producto=new FrutaHortaliza(sc);
-                inventario.addNuevoProducto(producto);
-            } break;
-            case "3":{
-                Producto producto=new Bebida(sc);
-                inventario.addNuevoProducto(producto);
-            } break;
-            case "4":{
-                Producto producto=new Herramienta(sc);
-                inventario.addNuevoProducto(producto);
-            } break;
-            case "5":{
-                Producto producto=new Otros(sc);
-                inventario.addNuevoProducto(producto);
-            } break;
-
         }
     }
 
-    public static void mostrarProductosEnviables(){
-
-        System.out.println("mostrando productos envibles");
-        inventario.mostrarProductosEnviables();
-
+    public static void mostrarMenuInventario() {// ver productos del super ordenados
+        System.out.println(Constantes.MENU_INVENTARIO);
     }
-    public static void guardarInventario(){
-        System.out.println("Guardando inventario...");
+    public static void mostrarMenuAddNuevoProducto() {// ver productos y escoger uno
+        System.out.println(Constantes.TITULO_TIPO_PRODUCTO);
     }
 
-   public static void gestionarMenuPrincipal(String opcion){
+    public static Producto nuevoProducto (int n) {
+        Scanner es = new Scanner (System.in);
+        Producto P;
+        switch(n) {
+            case 1: P = new Lacteo(es);break;
+            case 2: P = new FrutaHortaliza(es);break;
+            case 3: P = new Bebida(es);break;
+            case 4: P = new Herramienta(es);break;
+            default: P = new Otros(es);break;
+        }
+        return P;
+    }
 
-        switch (opcion){
-            case "1": cargarProductos();break;
-            case "2": mostrarInventario();break;
-            case "3": actualizarExistencias();break;
-            case "4": nuevoProducto();break;
-            case "5": mostrarProductosEnviables();break;
-            case "6": guardarInventario();break;
-       }
-   }
+    private static void pause() {
+        System.out.println("(pulsa 0 para continuar...");
+        leerOpcion(1);
+    }
 
-   public static void imprimirInventarioCompleto(){
-       for (int i = 0; i < inventario.tamanio() ; i++) {
-           Producto p= inventario.getProducto(i);
 
-           if(p.getCodigo()!=0){
-               System.out.println(p.imprimir());
-           }
-       }
-   }
+    private static int leerOpcion(int max) {
+        boolean terminar = false;
+        int n = 0;
+        while (!terminar) {
+            try {
+                n = in.nextInt();
+                in.nextLine();
+                if (n>=max || n<0) {
+                    throw new Exception();
+                }
+                terminar = true;
+            } catch (Exception e) {
+                System.out.println("Opcion incorrecta! elije de nuevo");
+                in.nextLine();
+            }
+        }
+        return n;
 
+
+    }
 }

@@ -2,13 +2,34 @@ public class Constantes {
 
     //constantes del menu
 
-    public static final String TITULO_MENU_PRINCIPAL="===========================================================================\n" +
-                                                     "                    SISTEMA DE GESTION DE SUPER ONLINE                    \n"+
-                                                     "===========================================================================" ;
+    public static final String TITULO_MENU_PRINCIPAL=Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n" +
+                                                     Constantes.ANSI_RESET+"                    SISTEMA DE GESTION DE SUPER ONLINE                    \n"+
+                                                     Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n\n" ;
 
-    public static final String TITULO_TIPO_PRODUCTO="===========================================================================\n" +
-                                                     "                  Elige el tipo de producto que quieres añadir            \n"+
-                                                     "===========================================================================" ;
+    public static final String MENU_INVENTARIO =TITULO_MENU_PRINCIPAL+
+            Constantes.ANSI_BLUE+"            tecla:1   "+Constantes.ANSI_YELLOW+"- Cargar productos\n"+
+            Constantes.ANSI_BLUE+"            tecla:2   "+Constantes.ANSI_YELLOW+"- Mostrar inventario\n"+
+            Constantes.ANSI_BLUE+"            tecla:3   "+Constantes.ANSI_YELLOW+"- Actualizar existencias\n"+
+            Constantes.ANSI_BLUE+"            tecla:4   "+Constantes.ANSI_YELLOW+"- Add nuevo producto\n"+
+            Constantes.ANSI_BLUE+"            tecla:5   "+Constantes.ANSI_YELLOW+"- Mostrar productos enviables\n"+
+            Constantes.ANSI_BLUE+"            tecla:6   "+Constantes.ANSI_YELLOW+"- Guardar inventario\n"+
+            Constantes.ANSI_BLUE+"            tecla:0   "+Constantes.ANSI_YELLOW+"- Terminar\n"+
+            Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n";
+
+
+
+    public static final String TITULO_TIPO_PRODUCTO=Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n" +
+                                                    Constantes.ANSI_RESET+"                  Elige el tipo de producto             \n"+
+                                                    Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n" +
+                                                    Constantes.ANSI_BLUE+"         tecla:1 "+Constantes.ANSI_YELLOW+"- Lacteo\n"+
+                                                    Constantes.ANSI_BLUE+"         tecla:2 "+Constantes.ANSI_YELLOW+"- Frutas u hortalizas\n"+
+                                                    Constantes.ANSI_BLUE+"         tecla:3 "+Constantes.ANSI_YELLOW+"- Bebidas\n"+
+                                                    Constantes.ANSI_BLUE+"         tecla:4 "+Constantes.ANSI_YELLOW+"- Herramientas\n"+
+                                                    Constantes.ANSI_BLUE+"         tecla:5 "+Constantes.ANSI_YELLOW+"- Otros\n"+
+                                                    Constantes.ANSI_BLUE+"         tecla:0 "+Constantes.ANSI_YELLOW+"- Cancelar\n"+
+                                                    Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n";
+
+
 
     //Colores para la consola
     public static final String ANSI_BLACK = "\u001B[30m";

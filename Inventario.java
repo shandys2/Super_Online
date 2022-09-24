@@ -6,7 +6,7 @@ public class Inventario {
     private static Inventario instancia;
     private static ArrayList<Producto> listaProductos;
     private String ficheroInventario ;
-    public int ultimoCodigo=1;
+    public static int ultimoCodigo=1;
 
     public static Inventario getInstance() {
 
@@ -20,10 +20,13 @@ public class Inventario {
         listaProductos = new ArrayList<>();
     }
 
-    public void cargarProductos(){
+    public static void volcarProductos() {
+        System.out.println("Volcando productos...");
+    }
+
+    public static void cargarProductos(){
 
         System.out.println("[Cargando productos...]");
-        Producto p0 = new Herramienta(  999999,  "0",  0,  0,  0);
         Producto p1 = new Lacteo(  1,  "Queso-Cheedar",  1.50,  14,  20 ,"21/09/2022" ,"210");
         Producto p2 = new Lacteo(  2,  "Leche-Kaiku",  0.50,  34,  29 ,"23/09/2022" ,"111");
         Producto p3 = new Lacteo(  3,  "Yogur-Danone ",  0.40,  10,  17,"20/09/2022" ,"421");
@@ -39,7 +42,6 @@ public class Inventario {
         Producto p13 = new Otros(  13,  "NO ENVIABLE",  68.00,  15,  40 ,"NO ENVIABLE");
         Producto p14 = new Otros(  14,  "NO ENVIABLE2",  68.00,  15,  40 ,"NO ENVIABLE2");
 
-        addNuevoProducto(p0);
         addNuevoProducto(p1);
         addNuevoProducto(p2);
         addNuevoProducto(p3);
@@ -62,17 +64,24 @@ public class Inventario {
 
     }
 
-    public void addNuevoProducto(Producto p){
+    public static void addNuevoProducto(Producto p){
 
         listaProductos.add(p);
         ultimoCodigo++;
     }
 
-    public void mostrarProductos(){
+    public static void mostrarProductos(){
+
+        for (int i = 1; i < size() ; i++) {
+            Producto p= getProducto(i);
+            if(p.getCodigo()!=0){
+                System.out.println(p.imprimir());
+            }
+        }
 
     }
 
-    public Producto getProducto( int codigo){
+    public static Producto getProducto( int codigo){
 
         int posicion=0;
 
@@ -91,22 +100,23 @@ public class Inventario {
 
     }
 
-    public int tamanio(){
-        return listaProductos.size();
+    public static int size(){
+        return listaProductos.size()+1;
     }
 
-    public void mostrarProductosEnviables(){
+    public static void mostrarProductosEnviables(){
 
-        for (int i = 0; i < tamanio() ; i++) {
+        for (int i = 0; i < size() ; i++) {
             Producto p= getProducto(i);
-
             if(p instanceof Enviable){
                 System.out.println(p.imprimir());
             }
         }
+
     }
 
     public void eliminarProducto(int id){
+
 
     }
 
