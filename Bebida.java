@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Bebida extends Perecedero{
@@ -9,7 +10,7 @@ public class Bebida extends Perecedero{
         this.setIva(Constantes.VALOR_IVA_BEBIDAS);
         this.graduacion= graduacion;
     }
-    public Bebida(Scanner in){
+    public Bebida(Scanner in) throws IOException {
         super(in);
         System.out.println("Introduzca la graduacion");
         graduacion= in.nextLine();
@@ -25,6 +26,14 @@ public class Bebida extends Perecedero{
 
     public String imprimir(){
         return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_BEBIDAS + Constantes.ANSI_RESET+ this.graduacion;
+    }
+
+    @Override
+    public void imprimirEnvio(){
+
+        super.imprimirEnvio() ;
+        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL" + (this.getPrecio()+Constantes.TARIFA_ENVIO) );
+        System.out.println("");
     }
 
 }

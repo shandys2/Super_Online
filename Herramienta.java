@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Herramienta extends NoPerecedero implements Enviable{
@@ -7,14 +8,17 @@ public class Herramienta extends NoPerecedero implements Enviable{
         setIva(Constantes.VALOR_IVA_HERRAMIENTAS);
     }
 
-    public Herramienta(Scanner in){
+    public Herramienta(Scanner in) throws IOException {
         super(in);
-        System.out.println("Soy una herramienta construyendose");
-
     }
-
     @Override
-    public String imprimirEnvio() { return null;}
+    public void imprimirEnvio(){
+
+
+        super.imprimirEnvio() ;
+        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL" + (this.getPrecio()+Constantes.TARIFA_ENVIO) );
+        System.out.println("");
+    }
 
     @Override
     public boolean envioFragil() { return Constantes.ENVIO_NORMAL;}

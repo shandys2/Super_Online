@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public abstract class Producto {
@@ -13,7 +14,8 @@ public abstract class Producto {
         this.cantidad = cantidad;
         this.peso = peso;
     };
-    public Producto(Scanner in){
+    public Producto(Scanner in) throws IOException {
+
         this.codigo=(Inventario.getInstance().ultimoCodigo);
 
         System.out.println("Introduce el nombre del producto (String)");
@@ -82,10 +84,18 @@ public abstract class Producto {
                " Cantidad:"+Constantes.ANSI_RESET + this.getCantidad()+Constantes.ANSI_GREEN +
                " Precio:"+Constantes.ANSI_RESET + this.getPrecio();
     }
+
+
     public String volcar(){
         return "Volcando....";
     }
 
-    public abstract String imprimirEnvio();
+    public void imprimirEnvio(){
+
+        System.out.print( " Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
+                        " Nombre:"+Constantes.ANSI_RESET+ this.getNombre() +Constantes.ANSI_GREEN+
+                        " Peso:"+Constantes.ANSI_RESET+ this.getPeso() +Constantes.ANSI_GREEN +
+                        " IVA:"+Constantes.ANSI_RESET+ this.getPeso() +Constantes.ANSI_GREEN);
+    }
 
 }

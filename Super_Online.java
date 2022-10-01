@@ -1,12 +1,21 @@
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Super_Online {
 
    static Scanner in = new Scanner(System.in);
-   static Inventario inventario = Inventario.getInstance();
+   static Inventario inventario;
 
-    public static void main(String[] args) {
+    static {
+        try {
+            inventario = Inventario.getInstance();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
 
         int opcion = 1;
 
@@ -78,7 +87,7 @@ public class Super_Online {
         System.out.println(Constantes.TITULO_TIPO_PRODUCTO);
     }
 
-    public static Producto nuevoProducto (int n) {
+    public static Producto nuevoProducto (int n) throws IOException {
         Scanner es = new Scanner (System.in);
         Producto P;
         switch(n) {

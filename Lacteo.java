@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Lacteo extends Perecedero{
@@ -10,7 +11,7 @@ public class Lacteo extends Perecedero{
         this.lote=lote;
     }
 
-    public Lacteo(Scanner in){
+    public Lacteo(Scanner in) throws IOException {
         super(in);
         System.out.println("Introduzca el lote del lacteo");
         lote= in.nextLine();
@@ -28,6 +29,13 @@ public class Lacteo extends Perecedero{
 
     public String imprimir(){
         return super.imprimir() + Constantes.ANSI_RED + Constantes.TXT_LACTEOS + Constantes.ANSI_RESET+ this.lote;
+    }
+    @Override
+    public void imprimirEnvio(){
+
+        super.imprimirEnvio() ;
+        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL: " + (this.getPrecio()+Constantes.TARIFA_ENVIO) );
+        System.out.println("");
     }
 }
 

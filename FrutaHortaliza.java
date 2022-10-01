@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FrutaHortaliza extends Perecedero {
@@ -10,7 +11,7 @@ public class FrutaHortaliza extends Perecedero {
         this.origen= origen;
 
     }
-    public FrutaHortaliza(Scanner in){
+    public FrutaHortaliza(Scanner in) throws IOException {
         super(in);
         System.out.println("Introduzca el origen");
         origen= in.nextLine();
@@ -27,6 +28,14 @@ public class FrutaHortaliza extends Perecedero {
     public String imprimir(){
 
         return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_FRUTAS_Y_HORT + Constantes.ANSI_RESET+ this.origen ;
+    }
+    @Override
+    public void imprimirEnvio(){
+
+        super.imprimirEnvio() ;
+        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL" + (this.getPrecio()+Constantes.TARIFA_ENVIO) );
+        System.out.println("");
+
     }
 
 }

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Otros extends NoPerecedero{
@@ -8,16 +9,12 @@ String categoria;
         setIva(Constantes.VALOR_IVA_OTROS);
     }
 
-    public Otros(Scanner in){
+    public Otros(Scanner in) throws IOException {
         super(in);
         System.out.println("Introduzca la categoria");
         categoria= in.nextLine();
     }
 
-    @Override
-    public String imprimirEnvio() {
-        return null;
-    }
 
     public String imprimir(){
 
