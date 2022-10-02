@@ -79,7 +79,7 @@ public abstract class Producto {
 
     public String imprimir(){
         return Constantes.ANSI_GREEN+
-                " Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
+                "\t\t\t\t Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
                " Nombre:"+Constantes.ANSI_RESET+ this.getNombre() +Constantes.ANSI_GREEN+
                " Cantidad:"+Constantes.ANSI_RESET + this.getCantidad()+Constantes.ANSI_GREEN +
                " Precio:"+Constantes.ANSI_RESET + this.getPrecio();
@@ -92,7 +92,7 @@ public abstract class Producto {
 
     public void imprimirEnvio(){
 
-        System.out.print( " Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
+        System.out.print( "\t\t\t\t Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
                         " Nombre:"+Constantes.ANSI_RESET+ this.getNombre() +Constantes.ANSI_GREEN+
                         " Peso:"+Constantes.ANSI_RESET+ this.getPeso() +Constantes.ANSI_GREEN +
                         " IVA:"+Constantes.ANSI_RESET+ this.getPeso() +Constantes.ANSI_GREEN);

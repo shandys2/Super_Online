@@ -10,13 +10,15 @@ public class Herramienta extends NoPerecedero implements Enviable{
 
     public Herramienta(Scanner in) throws IOException {
         super(in);
+        this.setIva(Constantes.VALOR_IVA_HERRAMIENTAS);
+
     }
     @Override
     public void imprimirEnvio(){
 
 
         super.imprimirEnvio() ;
-        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL" + (this.getPrecio()+Constantes.TARIFA_ENVIO) );
+        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL: " + Constantes.ANSI_RESET+Math.round((this.getPrecio()+this.getIva()+Constantes.TARIFA_ENVIO)*100.0)/100.0 );
         System.out.println("");
     }
 

@@ -11,6 +11,7 @@ String categoria;
 
     public Otros(Scanner in) throws IOException {
         super(in);
+        this.setIva(Constantes.VALOR_IVA_OTROS);
         System.out.println("Introduzca la categoria");
         categoria= in.nextLine();
     }
@@ -18,6 +19,6 @@ String categoria;
 
     public String imprimir(){
 
-        return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_FRUTAS_Y_HORT + Constantes.ANSI_RESET+ this.categoria ;
+        return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_OTROS + Constantes.ANSI_RESET+ this.categoria ;
     }
 }

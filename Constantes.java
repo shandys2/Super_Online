@@ -2,32 +2,32 @@ public class Constantes {
 
     //constantes del menu
 
-    public static final String TITULO_MENU_PRINCIPAL=Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n" +
-                                                     Constantes.ANSI_RESET+"                    SISTEMA DE GESTION DE SUPER ONLINE                    \n"+
-                                                     Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n\n" ;
+    public static final String TITULO_MENU_PRINCIPAL=Constantes.ANSI_GREEN+"\t\t\t\t███████████████████████████"+Constantes.ANSI_YELLOW+"░░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_RED+"███████████████████████████\n" +
+                                                     Constantes.ANSI_RESET+"\t\t\t\t                    SISTEMA DE GESTION DE SUPER ONLINE                    \n"+
+                                                     Constantes.ANSI_GREEN+"\t\t\t\t░░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_YELLOW+"███████████████████████████"+Constantes.ANSI_RED+"░░░░░░░░░░░░░░░░░░░░░░░░░░░\n\n" ;
 
     public static final String MENU_INVENTARIO =TITULO_MENU_PRINCIPAL+
-            Constantes.ANSI_BLUE+"            tecla:1   "+Constantes.ANSI_YELLOW+"- Cargar productos\n"+
-            Constantes.ANSI_BLUE+"            tecla:2   "+Constantes.ANSI_YELLOW+"- Mostrar inventario\n"+
-            Constantes.ANSI_BLUE+"            tecla:3   "+Constantes.ANSI_YELLOW+"- Actualizar existencias\n"+
-            Constantes.ANSI_BLUE+"            tecla:4   "+Constantes.ANSI_YELLOW+"- Add nuevo producto\n"+
-            Constantes.ANSI_BLUE+"            tecla:5   "+Constantes.ANSI_YELLOW+"- Mostrar productos enviables\n"+
-            Constantes.ANSI_BLUE+"            tecla:6   "+Constantes.ANSI_YELLOW+"- Guardar inventario\n"+
-            Constantes.ANSI_BLUE+"            tecla:0   "+Constantes.ANSI_YELLOW+"- Terminar\n"+
-            Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n";
+            Constantes.ANSI_BLUE+"\t\t\t\t            █:1   "+Constantes.ANSI_YELLOW+"- Cargar productos\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            ░:2   "+Constantes.ANSI_YELLOW+"- Mostrar inventario\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            █:3   "+Constantes.ANSI_YELLOW+"- Actualizar existencias\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            ░:4   "+Constantes.ANSI_YELLOW+"- Add nuevo producto\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            █:5   "+Constantes.ANSI_YELLOW+"- Mostrar productos enviables\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            ░:6   "+Constantes.ANSI_YELLOW+"- Guardar inventario\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            █:0   "+Constantes.ANSI_YELLOW+"- Terminar\n\n"+
+            Constantes.ANSI_GREEN+"\t\t\t\t███████████████████████████"+Constantes.ANSI_YELLOW+"███████████████████████████"+Constantes.ANSI_RED+"███████████████████████████\n";
 
 
 
-    public static final String TITULO_TIPO_PRODUCTO=Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n" +
-                                                    Constantes.ANSI_RESET+"                  Elige el tipo de producto             \n"+
-                                                    Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n" +
-                                                    Constantes.ANSI_BLUE+"         tecla:1 "+Constantes.ANSI_YELLOW+"- Lacteo\n"+
-                                                    Constantes.ANSI_BLUE+"         tecla:2 "+Constantes.ANSI_YELLOW+"- Frutas u hortalizas\n"+
-                                                    Constantes.ANSI_BLUE+"         tecla:3 "+Constantes.ANSI_YELLOW+"- Bebidas\n"+
-                                                    Constantes.ANSI_BLUE+"         tecla:4 "+Constantes.ANSI_YELLOW+"- Herramientas\n"+
-                                                    Constantes.ANSI_BLUE+"         tecla:5 "+Constantes.ANSI_YELLOW+"- Otros\n"+
-                                                    Constantes.ANSI_BLUE+"         tecla:0 "+Constantes.ANSI_YELLOW+"- Cancelar\n"+
-                                                    Constantes.ANSI_GREEN+"========================"+Constantes.ANSI_YELLOW+"============================"+Constantes.ANSI_RED+"=======================\n";
+    public static final String TITULO_TIPO_PRODUCTO=Constantes.ANSI_GREEN+"\t\t\t\t███████████████████████████"+Constantes.ANSI_YELLOW+"███████████████████████████"+Constantes.ANSI_RED+"███████████████████████████\n" +
+                                                    Constantes.ANSI_RESET+"\t\t\t\t                  Elige el tipo de producto             \n"+
+                                                    Constantes.ANSI_GREEN+"\t\t\t\t░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_YELLOW+"░░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_RED+"░░░░░░░░░░░░░░░░░░░░░░░░░░░\n" +
+                                                    Constantes.ANSI_BLUE+"\t\t\t\t         ░:1 "+Constantes.ANSI_YELLOW+"- Lacteo\n"+
+                                                    Constantes.ANSI_BLUE+"\t\t\t\t         █:2 "+Constantes.ANSI_YELLOW+"- Frutas u hortalizas\n"+
+                                                    Constantes.ANSI_BLUE+"\t\t\t\t         ░:3 "+Constantes.ANSI_YELLOW+"- Bebidas\n"+
+                                                    Constantes.ANSI_BLUE+"\t\t\t\t         █:4 "+Constantes.ANSI_YELLOW+"- Herramientas\n"+
+                                                    Constantes.ANSI_BLUE+"\t\t\t\t         ░:5 "+Constantes.ANSI_YELLOW+"- Otros\n"+
+                                                    Constantes.ANSI_BLUE+"\t\t\t\t         █:0 "+Constantes.ANSI_YELLOW+"- Cancelar\n"+
+                                                    Constantes.ANSI_GREEN+"\t\t\t\t░░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_YELLOW+"░░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_RED+"░░░░░░░░░░░░░░░░░░░░░░░░░░░\n";
 
 
 
@@ -63,9 +63,21 @@ public class Constantes {
     public static String NO_PERECEDERO=" (Producto NO perecedero)";
     public static String TXT_FRUTAS_Y_HORT=" Fruta de origen: ";
     public static String TXT_BEBIDAS=" Bedida de graduacion: ";
-    public static String TXT_LACTEOS=" Producto Lacteo: Lote-";
+    public static String TXT_LACTEOS=" Producto Lacteo: ";
     public static String TXT_HERRAMIENTAS=" Herramienta";
-    public static String TXT_OTROS;
+    public static String TXT_OTROS ="Categoria: ";
 
+
+    public static String BANNER =Constantes.ANSI_GREEN+"\t\t  █████████  █████  █████ ███████████  ██████████ ███████████         ███████    ██████   █████ █████       █████ ██████   █████ ██████████\n" +
+            Constantes.ANSI_GREEN+"\t\t ███░░░░░███░░███  ░░███ ░░███░░░░░███░░███░░░░░█░░███░░░░░███      ███░░░░░███ ░░██████ ░░███ ░░███       ░░███ ░░██████ ░░███ ░░███░░░░░█\n" +
+            Constantes.ANSI_GREEN+"\t\t░███    ░░░  ░███   ░███  ░███    ░███ ░███  █ ░  ░███    ░███     ███     ░░███ ░███░███ ░███  ░███        ░███  ░███░███ ░███  ░███  █ ░ \n" +
+            Constantes.ANSI_YELLOW+"\t\t░░█████████  ░███   ░███  ░██████████  ░██████    ░██████████     ░███      ░███ ░███░░███░███  ░███        ░███  ░███░░███░███  ░██████   \n" +
+            Constantes.ANSI_YELLOW+ "\t\t ░░░░░░░░███ ░███   ░███  ░███░░░░░░   ░███░░█    ░███░░░░░███    ░███      ░███ ░███ ░░██████  ░███        ░███  ░███ ░░██████  ░███░░█   \n" +
+            Constantes.ANSI_RED+"\t\t ███    ░███ ░███   ░███  ░███         ░███ ░   █ ░███    ░███    ░░███     ███  ░███  ░░█████  ░███      █ ░███  ░███  ░░█████  ░███ ░   █\n" +
+            Constantes.ANSI_RED+"\t\t░░█████████  ░░████████   █████        ██████████ █████   █████    ░░░███████░   █████  ░░█████ ███████████ █████ █████  ░░█████ ██████████\n" +
+            Constantes.ANSI_RED+"\t\t ░░░░░░░░░    ░░░░░░░░   ░░░░░        ░░░░░░░░░░ ░░░░░   ░░░░░       ░░░░░░░    ░░░░░    ░░░░░ ░░░░░░░░░░░ ░░░░░ ░░░░░    ░░░░░ ░░░░░░░░░░ \n" +
+            Constantes.ANSI_RESET+"\t\t                                                                                                                                           \n" +
+                                "\t\t                                                                                                                                           \n" +
+                                " \t\t                                                                                                                                          ";
 
 }

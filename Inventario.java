@@ -34,16 +34,9 @@ public class Inventario {
 
         String []temp ;
         try{
-            //Abro stream, crea el fichero si no existe
-           //  fw=new FileWriter("C:\\BBDD\\productos.txt");
-            //Escribimos en el fichero un String y un caracter 97 (a)
 
-           // fw.write("Esto es una prueb");
-            //fw.write(97);
-            //Cierro el stream
-            //fw.close();
             //Abro el stream, el fichero debe existir
-             fr=new FileReader("C:\\BBDD\\productos.txt");
+             fr=new FileReader("productos.txt");
              bf= new BufferedReader(fr);
             //Leemos el fichero y lo mostramos por pantalla
 
@@ -53,6 +46,7 @@ public class Inventario {
                 temp = linea.split(" ");
 
                 String tipoProducto = temp[temp.length - 1]; //miramos el tipo de producto que esta al final de la lectura siempre
+
                 Producto producto = null;
 
                 try {
@@ -103,6 +97,7 @@ public class Inventario {
                 } catch (Exception e) {
                     System.out.println("Error al insertar el producto");
                 } finally {
+
                     addNuevoProducto(producto);
                 }
             }
@@ -121,6 +116,33 @@ public class Inventario {
 
     public void guardarProductos(){
 
+        System.out.println("Sin implementar");
+
+        /*  //Abro stream, crea el fichero si no existe
+        try {
+            fw=new FileWriter("productos.txt");
+            BufferedWriter bf = new BufferedWriter(fw);
+            String linea;
+
+            for (Producto p:listaProductos) {
+                bf.write(p.getCodigo());
+                bf.flush();
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }finally {
+
+            try {
+                fw.close();
+                bf.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+*/
+
     }
 
     public static void addNuevoProducto(Producto p){
@@ -133,9 +155,7 @@ public class Inventario {
 
         for (int i = 1; i < size() ; i++) {
             Producto p= getProducto(i);
-            if(p.getCodigo()!=0){
-                System.out.println(p.imprimir());
-            }
+            System.out.println(p.imprimir());
         }
 
     }
@@ -165,13 +185,12 @@ public class Inventario {
 
     public static void mostrarProductosEnviables(){
 
-        for (int i = 0; i < size() ; i++) {
+        for (int i = 1; i < size() ; i++) {
             Producto p= getProducto(i);
             if(p instanceof Enviable){
               p.imprimirEnvio();
             }
         }
-
     }
 
     public void eliminarProducto(int id){

@@ -24,8 +24,6 @@ public abstract class Perecedero extends Producto implements Enviable{
     @Override
     public void imprimirEnvio(){
 
-            if(this.envioFragil())
-
 
         super.imprimirEnvio() ;
         System.out.print( Constantes.ANSI_YELLOW+ " Tarifa de envio" + Constantes.TARIFA_ENVIO );

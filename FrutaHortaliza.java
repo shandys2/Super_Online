@@ -13,6 +13,7 @@ public class FrutaHortaliza extends Perecedero {
     }
     public FrutaHortaliza(Scanner in) throws IOException {
         super(in);
+        this.setIva(Constantes.VALOR_IVA_FRUTAS_Y_HORTALIZAS);
         System.out.println("Introduzca el origen");
         origen= in.nextLine();
     }
@@ -33,7 +34,7 @@ public class FrutaHortaliza extends Perecedero {
     public void imprimirEnvio(){
 
         super.imprimirEnvio() ;
-        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL" + (this.getPrecio()+Constantes.TARIFA_ENVIO) );
+        System.out.print( Constantes.ANSI_RED+ " PRECIO-TOTAL: " + Constantes.ANSI_RESET+Math.round((this.getPrecio()+this.getIva()+Constantes.TARIFA_ENVIO)*100.0)/100.0  );
         System.out.println("");
 
     }

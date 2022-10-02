@@ -1,4 +1,6 @@
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,12 +19,14 @@ public class Super_Online {
 
     public static void main(String[] args) throws IOException {
 
-        int opcion = 1;
 
+System.out.println(Constantes.BANNER);
+        /////////////////////////////////////
+        int opcion = 1;
 
         while (opcion != 0) {
             mostrarMenuInventario();
-            System.out.println(Constantes.ANSI_PURPLE+"Opcion? ");
+            System.out.println(Constantes.ANSI_RESET+"Opcion? ");
             opcion = leerOpcion(7); // hay 6 acciones principales sobre el inventario + terminar la aplicaciÃ³n
             switch(opcion) {
                 case 0:	System.out.println("Termina la aplicacion");
@@ -48,23 +52,24 @@ public class Super_Online {
                             int cant = in.nextInt();
                             in.nextLine();
                             p.setCantidad(cant);   //actualiza el mismo producto del inventario
-                            //NO ES NECESARIA LA ACTUALIZACIÃ“N DESDE INVENTARIO!!
+                            //NO ES NECESARIA LA ACTUALIZACIÓN DESDE INVENTARIO!!
                             System.out.println("Producto actualizado: "+p.getNombre()+", Nueva cantidad en almacen: "+p.getCantidad());
                             System.out.println();
                             pause();
                         }
                     } opcion=1; break;
-                case 4: 	//aÃ±adir un nuevo producto al almancÃ©n
+                case 4: 	//aÑadir un nuevo producto al almancÃ©n
                     while (opcion!=0) {
+
                         mostrarMenuAddNuevoProducto();
                         System.out.println(Constantes.ANSI_PURPLE+"Opcion? " +Constantes.ANSI_RESET);
-                        opcion = leerOpcion(6); // 5 clases de productos y salida del menÃº
+                        opcion = leerOpcion(6); // 5 clases de productos y salida del menuº
                         if (opcion!=0) {
 
                             Producto P = nuevoProducto(opcion);
                             inventario.addNuevoProducto(P);
                             System.out.println("Producto aniadido , numero "+(inventario.size()-1));
-                            inventario.getProducto(inventario.size()).imprimir(); //imprime el Ãºltimo producto incluido
+                            inventario.getProducto(inventario.size()).imprimir(); //imprime el ultimo producto incluido
                             System.out.println();
                             System.out.println();
                             pause();
@@ -73,7 +78,7 @@ public class Super_Online {
                 case 5: inventario.mostrarProductosEnviables();
                     pause();
                     break;
-                case 6: inventario.volcarProductos();
+                case 6: inventario.guardarProductos();
                     pause();
                     break;
             }
@@ -126,4 +131,6 @@ public class Super_Online {
 
 
     }
+
+
 }
