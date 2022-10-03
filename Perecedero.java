@@ -18,7 +18,7 @@ public abstract class Perecedero extends Producto implements Enviable{
     }
 
     public String volcar(){
-        return "vocando desde perecedero";
+        return super.volcar()+" "+this.fechacad;
   }
 
     @Override
@@ -26,7 +26,7 @@ public abstract class Perecedero extends Producto implements Enviable{
 
 
         super.imprimirEnvio() ;
-        System.out.print( Constantes.ANSI_YELLOW+ " Tarifa de envio" + Constantes.TARIFA_ENVIO );
+        System.out.print( Constantes.ANSI_YELLOW+ " Tarifa de envio: " + Constantes.TARIFA_ENVIO );
 
     }
     public String imprimir(){

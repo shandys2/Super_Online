@@ -16,6 +16,11 @@ String categoria;
         categoria= in.nextLine();
     }
 
+    @Override
+    public String volcar() {
+
+        return   super.volcar()+" "+this.categoria+ " Otros";
+    }
 
     public String imprimir(){
 

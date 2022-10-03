@@ -31,6 +31,11 @@ public class Lacteo extends Perecedero{
         return super.imprimir() + Constantes.ANSI_RED + Constantes.TXT_LACTEOS + Constantes.ANSI_RESET+ this.lote;
     }
     @Override
+    public String volcar() {
+
+        return   super.volcar()+" " +this.lote + " Lacteo";
+    }
+    @Override
     public void imprimirEnvio(){
 
         super.imprimirEnvio() ;

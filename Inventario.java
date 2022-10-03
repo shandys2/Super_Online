@@ -12,6 +12,7 @@ public class Inventario {
     static FileWriter fw;
     static FileReader fr;
     static BufferedReader bf;
+    static BufferedWriter bw;
 
 
     public static Inventario getInstance() throws IOException {
@@ -27,6 +28,8 @@ public class Inventario {
     }
 
     public static void volcarProductos() {
+
+
         System.out.println("Volcando productos...");
     }
 
@@ -38,6 +41,7 @@ public class Inventario {
             //Abro el stream, el fichero debe existir
              fr=new FileReader("productos.txt");
              bf= new BufferedReader(fr);
+
             //Leemos el fichero y lo mostramos por pantalla
 
             String linea;
@@ -118,15 +122,16 @@ public class Inventario {
 
         System.out.println("Sin implementar");
 
-        /*  //Abro stream, crea el fichero si no existe
+         //Abro stream, crea el fichero si no existe
         try {
-            fw=new FileWriter("productos.txt");
-            BufferedWriter bf = new BufferedWriter(fw);
-            String linea;
+             fw=new FileWriter("productos.txt");
+             bw = new BufferedWriter(fw);
+             String linea;
 
             for (Producto p:listaProductos) {
-                bf.write(p.getCodigo());
-                bf.flush();
+                bw.write(p.volcar());
+                bw.newLine();
+                bw.flush();
             }
 
         } catch (IOException e) {
@@ -134,14 +139,15 @@ public class Inventario {
         }finally {
 
             try {
+
                 fw.close();
-                bf.close();
+                bw.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
         }
-*/
+
 
     }
 

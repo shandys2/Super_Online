@@ -28,7 +28,11 @@ public class Bebida extends Perecedero{
     public String imprimir(){
         return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_BEBIDAS + Constantes.ANSI_RESET+ this.graduacion;
     }
+    @Override
+    public String volcar() {
 
+        return   super.volcar()+" "+ this.graduacion+ " Bebida";
+    }
     @Override
     public void imprimirEnvio(){
 

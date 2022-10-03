@@ -87,7 +87,8 @@ public abstract class Producto {
 
 
     public String volcar(){
-        return "Volcando....";
+        return this.getCodigo() +" "+this.getNombre()+" " + this.getPrecio()+" " +
+                this.getCantidad()+ " " + this.getPeso();
     }
 
     public void imprimirEnvio(){
@@ -95,7 +96,7 @@ public abstract class Producto {
         System.out.print( "\t\t\t\t Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
                         " Nombre:"+Constantes.ANSI_RESET+ this.getNombre() +Constantes.ANSI_GREEN+
                         " Peso:"+Constantes.ANSI_RESET+ this.getPeso() +Constantes.ANSI_GREEN +
-                        " IVA:"+Constantes.ANSI_RESET+ this.getPeso() +Constantes.ANSI_GREEN);
+                        " IVA:"+Constantes.ANSI_RESET+ this.getIva() +Constantes.ANSI_GREEN);
     }
 
 }

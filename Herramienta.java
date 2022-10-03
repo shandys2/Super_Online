@@ -23,6 +23,11 @@ public class Herramienta extends NoPerecedero implements Enviable{
     }
 
     @Override
+    public String volcar() {
+
+        return   super.volcar() +" Herramienta";
+    }
+    @Override
     public boolean envioFragil() { return Constantes.ENVIO_NORMAL;}
     @Override
     public double tarifaEnvio() {return Constantes.TARIFA_ENVIO;}

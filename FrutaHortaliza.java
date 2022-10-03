@@ -25,6 +25,11 @@ public class FrutaHortaliza extends Perecedero {
     public double tarifaEnvio() {
         return Constantes.TARIFA_ENVIO;
     }
+    @Override
+    public String volcar() {
+
+        return   super.volcar()+" "+ this.origen+ " FrutaHortaliza";
+    }
 
     public String imprimir(){
 
