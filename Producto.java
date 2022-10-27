@@ -1,11 +1,14 @@
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Producto {
+public abstract class Producto implements Serializable {
 
     private Double iva ,peso,precio;
     private Integer codigo,cantidad;
     private String nombre;
+
+    public Producto(){}
 
     public Producto(int codigo, String nombre, double precio, int cantidad, double peso){
         this.codigo = codigo;
@@ -14,6 +17,8 @@ public abstract class Producto {
         this.cantidad = cantidad;
         this.peso = peso;
     };
+
+
     public Producto(Scanner in) throws IOException {
 
         this.codigo=(Inventario.getInstance().ultimoCodigo);
@@ -31,17 +36,17 @@ public abstract class Producto {
 
     }
 
-    public double getPeso(){
+    public Double getPeso(){
         return this.peso;
     }
 
-    public int getCodigo(){
+    public Integer getCodigo(){
         return this.codigo;
     }
 
-    public double getPrecio(){ return this.precio;
+    public Double getPrecio(){ return this.precio;
     }
-    public int getCantidad(){
+    public Integer getCantidad(){
         return this.cantidad;
     }
 
@@ -49,42 +54,49 @@ public abstract class Producto {
         return this.nombre;
     }
 
-    public double getIva(){
+    public Double getIva(){
         return this.iva;
     }
 
-    public void setCodigo(int codigo){
-        this.codigo=codigo;
-    }
-
-    public void setPrecio(double pr){
-        this.precio=pr;
-    }
-
-    public void setCantidad(int cantidad){
-        this.cantidad=cantidad;
-    }
 
     public void setNombre(String nombre){
         this.nombre=nombre;
     }
 
-    public void setIva(double iva){
-        this.iva=iva;
+
+    public void setIva(Double iva) {
+        this.iva = iva;
     }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+
 
     public double calcularPrecioIva(){
         return this.getPrecio() + this.getIva();
     }
 
-    public String imprimir(){
-        return Constantes.ANSI_GREEN+
+    public void imprimir(){
+        System.out.print(Constantes.ANSI_GREEN+
                 "\t\t\t\t Id:" +Constantes.ANSI_RESET +this.getCodigo() +Constantes.ANSI_GREEN+
-               " Nombre:"+Constantes.ANSI_RESET+ this.getNombre() +Constantes.ANSI_GREEN+
-               " Cantidad:"+Constantes.ANSI_RESET + this.getCantidad()+Constantes.ANSI_GREEN +
-               " Precio:"+Constantes.ANSI_RESET + this.getPrecio();
+                " Nombre:"+Constantes.ANSI_RESET+ this.getNombre() +Constantes.ANSI_GREEN+
+                " Cantidad:"+Constantes.ANSI_RESET + this.getCantidad()+Constantes.ANSI_GREEN +
+                " Precio:"+Constantes.ANSI_RESET + this.getPrecio() );
     }
-
 
     public String volcar(){
         return this.getCodigo() +" "+this.getNombre()+" " + this.getPrecio()+" " +

@@ -5,6 +5,8 @@ public class FrutaHortaliza extends Perecedero {
 
     private String origen;
 
+    public FrutaHortaliza(){ }
+
     public FrutaHortaliza(int codigo, String nombre, double precio, int cantidad, double peso ,String fechacad, String origen) {
         super(codigo, nombre, precio, cantidad, peso, fechacad);
         this.setIva(Constantes.VALOR_IVA_FRUTAS_Y_HORTALIZAS);
@@ -18,11 +20,11 @@ public class FrutaHortaliza extends Perecedero {
         origen= in.nextLine();
     }
     @Override
-    public boolean envioFragil() {
+    public Boolean envioFragil() {
         return Constantes.ENVIO_FRAGIL;
     }
     @Override
-    public double tarifaEnvio() {
+    public Double tarifaEnvio() {
         return Constantes.TARIFA_ENVIO;
     }
     @Override
@@ -31,9 +33,9 @@ public class FrutaHortaliza extends Perecedero {
         return   super.volcar()+" "+ this.origen+ " FrutaHortaliza";
     }
 
-    public String imprimir(){
-
-        return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_FRUTAS_Y_HORT + Constantes.ANSI_RESET+ this.origen ;
+    public void imprimir(){
+        super.imprimir() ;
+        System.out.print(Constantes.ANSI_RED + Constantes.TXT_FRUTAS_Y_HORT + Constantes.ANSI_RESET+ this.origen+"\n" );
     }
     @Override
     public void imprimirEnvio(){
@@ -44,4 +46,11 @@ public class FrutaHortaliza extends Perecedero {
 
     }
 
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
 }

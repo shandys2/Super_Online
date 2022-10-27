@@ -7,12 +7,12 @@ public class Constantes {
                                                      Constantes.ANSI_GREEN+"\t\t\t\t░░░░░░░░░░░░░░░░░░░░░░░░░░░"+Constantes.ANSI_YELLOW+"███████████████████████████"+Constantes.ANSI_RED+"░░░░░░░░░░░░░░░░░░░░░░░░░░░\n\n" ;
 
     public static final String MENU_INVENTARIO =TITULO_MENU_PRINCIPAL+
-            Constantes.ANSI_BLUE+"\t\t\t\t            █:1   "+Constantes.ANSI_YELLOW+"- Cargar productos\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            █:1   "+Constantes.ANSI_YELLOW+"- Migrar Base de datos \n"+
             Constantes.ANSI_BLUE+"\t\t\t\t            ░:2   "+Constantes.ANSI_YELLOW+"- Mostrar inventario\n"+
             Constantes.ANSI_BLUE+"\t\t\t\t            █:3   "+Constantes.ANSI_YELLOW+"- Actualizar existencias\n"+
             Constantes.ANSI_BLUE+"\t\t\t\t            ░:4   "+Constantes.ANSI_YELLOW+"- Add nuevo producto\n"+
             Constantes.ANSI_BLUE+"\t\t\t\t            █:5   "+Constantes.ANSI_YELLOW+"- Mostrar productos enviables\n"+
-            Constantes.ANSI_BLUE+"\t\t\t\t            ░:6   "+Constantes.ANSI_YELLOW+"- Guardar inventario\n"+
+            Constantes.ANSI_BLUE+"\t\t\t\t            ░:6   "+Constantes.ANSI_YELLOW+"- Eliminar producto\n"+
             Constantes.ANSI_BLUE+"\t\t\t\t            █:0   "+Constantes.ANSI_YELLOW+"- Terminar\n\n"+
             Constantes.ANSI_GREEN+"\t\t\t\t███████████████████████████"+Constantes.ANSI_YELLOW+"███████████████████████████"+Constantes.ANSI_RED+"███████████████████████████\n";
 

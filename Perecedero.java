@@ -14,8 +14,9 @@ public abstract class Perecedero extends Producto implements Enviable{
         System.out.println("Introduce la fecha de caducidad (--/--/--)");
         fechacad= in.nextLine();
 
-
     }
+
+    public Perecedero(){}
 
     public String volcar(){
         return super.volcar()+" "+this.fechacad;
@@ -23,21 +24,27 @@ public abstract class Perecedero extends Producto implements Enviable{
 
     @Override
     public void imprimirEnvio(){
-
-
         super.imprimirEnvio() ;
         System.out.print( Constantes.ANSI_YELLOW+ " Tarifa de envio: " + Constantes.TARIFA_ENVIO );
 
     }
-    public String imprimir(){
-        return super.imprimir()+ Constantes.ANSI_YELLOW+ Constantes.PERECEDERO + Constantes.ANSI_RESET+ fechacad + Constantes.ANSI_YELLOW +")";
+    public void imprimir(){
+         super.imprimir();
+         System.out.print(Constantes.ANSI_YELLOW+ Constantes.PERECEDERO + Constantes.ANSI_RESET+ fechacad + Constantes.ANSI_YELLOW +")");
 
     }
-    public boolean envioFragil(){
+    public Boolean envioFragil(){
         return Constantes.ENVIO_FRAGIL;
   }
-    public double tarifaEnvio(){
+    public Double tarifaEnvio(){
         return Constantes.TARIFA_ENVIO;
   }
 
+    public String getFechacad() {
+        return fechacad;
+    }
+
+    public void setFechacad(String fechacad) {
+        this.fechacad = fechacad;
+    }
 }

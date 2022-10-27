@@ -1,6 +1,6 @@
 public interface Enviable {
 
-    public double getPeso();
-    public boolean envioFragil();
-    public double tarifaEnvio();
+    public Double getPeso();
+    public Boolean envioFragil();
+    public Double tarifaEnvio();
 }

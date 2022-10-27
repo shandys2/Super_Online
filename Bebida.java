@@ -5,6 +5,8 @@ public class Bebida extends Perecedero{
 
     private String graduacion;
 
+    public Bebida(){ }
+
     public Bebida(int codigo, String nombre, double precio, int cantidad, double peso,String fechacad, String graduacion) {
         super(codigo, nombre, precio, cantidad, peso, fechacad);
         this.setIva(Constantes.VALOR_IVA_BEBIDAS);
@@ -17,16 +19,17 @@ public class Bebida extends Perecedero{
         graduacion= in.nextLine();
     }
     @Override
-    public boolean envioFragil() {
+    public Boolean envioFragil() {
         return Constantes.ENVIO_NORMAL;
     }
     @Override
-    public double tarifaEnvio() {
+    public Double tarifaEnvio() {
         return Constantes.TARIFA_ENVIO;
     }
 
-    public String imprimir(){
-        return super.imprimir() +Constantes.ANSI_RED + Constantes.TXT_BEBIDAS + Constantes.ANSI_RESET+ this.graduacion;
+    public void imprimir(){
+         super.imprimir();
+         System.out.print(Constantes.ANSI_RED + Constantes.TXT_BEBIDAS + Constantes.ANSI_RESET+ this.graduacion+"\n");
     }
     @Override
     public String volcar() {
@@ -41,4 +44,11 @@ public class Bebida extends Perecedero{
         System.out.println("");
     }
 
+    public String getGraduacion() {
+        return graduacion;
+    }
+
+    public void setGraduacion(String graduacion) {
+        this.graduacion = graduacion;
+    }
 }
